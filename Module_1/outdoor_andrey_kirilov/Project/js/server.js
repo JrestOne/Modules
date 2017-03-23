@@ -1,128 +1,123 @@
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 4900;
+var port = process.env.PORT || 4300;
 var bodyParser = require('body-parser');
 var bcrypt = require('bcrypt');
 var salt = bcrypt.genSaltSync(10);
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
 
-const passport = require('passport');
-
-const RedisStore = require('connect-redis')(session);
 const path = require('path');
 const pg = require('pg');
-
-var knex = require('knex')({
-  client: 'pg',
-  connection: process.env.DATABASE_URL || 'postgres://postgres:123@localhost:5432/postgres',
-  searchPath: 'knex,public'
-});
-
-const connectStr = process.env.DATABASE_URL || 'postgres://postgres:123@localhost:5432/postgres';
-const LocalStrategy = require('passport-local').Strategy;
-
+const connectStr = process.env.DATABASE_URL || 'postgres://postgres:vdhnn_4623@localhost:5432/postgres';
 app.use(express.static(path.join(__dirname + '/../' + 'public')));
 app.use(bodyParser());
-app.use(cookieParser());
-app.use(session({ secret: 'SECRET' }));
-app.use(passport.initialize());
-app.use(passport.session());
-
-console.log("server  is running");
-
-passport.serializeUser(function(user, done) {
-     done(null, user.username);
- });
-
- passport.deserializeUser(function(username, err, done) {
-//     knex('users').where({ username }).first();
-     done(err);
- });
 
 
 
-passport.use(new LocalStrategy( function(username, password, done) {
-  // check to see if the username exists
-    knex('users').where({ username }).first()
-    .then(function(user) {
-        if (!user){
-            return done(null, false);
-        }
-        if (!comparePass(password, user.password)) {
-            console.log('Passwords don`t compare');
-            return done(null, false);
-        } else {
-            console.log('Nice, passwords are compare');
-            return done(null, user);
-        }
-    })
-    .catch((err) => {
+console.log("server  is running on port 3000");
 
-        return done(err);
-    });
-}));
-
-
-
-function comparePass(userPassword, databasePassword) {
-  return bcrypt.compareSync(userPassword, databasePassword);
-}
-
-module.exports = {
-  comparePass
-};
 
 
 app.post('/register', function(req, res){
     console.log('update user init');
-    var username = req.body.username;
-    var email = req.body.email;
-    var password = req.body.password;
-    var roles = 'user';
-    var hash = bcrypt.hashSync(password, salt);
+//         var id = req.body.id;
+         var user_account = req.body.username;
+         var email = req.body.email;
+         var password = req.body.password;
+         var roles = 'user';
+         var hash = bcrypt.hashSync(password, salt);
 
-    console.log('server update user data'+' - ' + username, email, password);
-    bcrypt.hash(password, 10, function(err, hash) {
-        console.log('Password hashed')
-    });
-    bcrypt.compare(password, hash, function(err, res) {
-        console.log('Passwords are compared')
-    });
+         console.log('server update user data'+' - ' + user_account, email, password);
+         bcrypt.hash(password, 10, function(err, hash) {
+            console.log('Incorrect')
+         });
+         bcrypt.compare(password, hash, function(err, res) {
+            console.log('Correct')
+         });
 
-    console.log('hash here')
-    console.log(hash);
+         console.log('hash here')
+         console.log(hash);
+
+         pg.connect(connectStr, function(err, client, done){
+            if (err){
+                return console.error('connect error', err);
+            }
+//            console.log(user_account, email, password)
+            client.query('INSERT into users (user_account, email, password, roles) values ($1, $2, $3, $4)',[user_account, email, hash, roles], function(err, result){
+             if (err){
+                return console.error('query error', err);
+             }
+             console.log('successful');
+
+             res.redirect('/index.html');
+             });
+         done();
+         });
+
+});
+
+
+app.get('/login', function (req, res) {
+
+    var check= false;
+    var login= req.query.login;
+    var pass= req.query.pass;
+    var hash = bcrypt.hashSync(pass, salt);
+    var a = {};
+    console.log('server takes this data '+ login + ' and ' + pass);
 
 
     pg.connect(connectStr, function(err, client, done){
         if (err){
             return console.error('connect error', err);
         }
+        const query = client.query("SELECT * FROM users WHERE user_account = $1", [login], function(err, result){
+            if (err){
+                return console.error('query error', err);
+            }
+            query.on("row", function (row, result) {
+                console.log('123321');
+                result.addRow(row);
+            });
 
-        client.query('INSERT into users (username, email, password, roles) values ($1, $2, $3, $4)',[username, email, hash, roles], function(err, result){
-        if (err){
-            return console.error('query error', err);
-        }
-        console.log('successful');
+            query.on("end", function (result, pass) {
+                console.log('users get server' + JSON.stringify(result.rows, null, "    "));
 
-        res.redirect('/index.html');
+                console.log('password of user is '+ result.rows[0].password);
+                bcrypt.hash(pass, salt, function(err, res) {
+                    if(err){
+                        console.log('Error in hashing entered password');
+                    }
+                });
+
+
+                console.log('Entered password is '+hash);
+
+                bcrypt.compare(pass, hash, function(err, res, result) {
+                    if(err) {
+                        console.log('passwords don`t compare');
+                        return 0;
+
+                    }
+                    console.log('I will return login '+ result);
+                    console.log('I will return password '+ result.rows[0].password);
+                    check = true;
+                });
+                if (check == true){
+                    return res.json(result);
+                }
+                else {
+                    console.log('Passwords don`t compare')
+                    return 0;
+                }
+
+                client.end();
+            });
         });
-    done();
+
     });
-});
 
 
-app.post('/login',passport.authenticate('local'),function(req,res){
-    console.log('Started to login');
-    res.send(req.user);
-
-});
-
-
-app.get('/loggedin', function(req, res) {
-    res.send(req.isAuthenticated() ? req.user : '0');
-});
-
+ });
 
 
 app.listen(port);

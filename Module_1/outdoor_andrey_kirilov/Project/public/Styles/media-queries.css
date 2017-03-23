@@ -1,169 +1,176 @@
 @media (max-width: 972px) {
-    .footer_link{
-        width: 100%;
-    }
-    table{
-        width:100%;
-    }
-    tbody{
-        width:100;
-    }
-    tr{
-        width: 100%;
-    }
-    .container{
-        width: 100%;
-    }
-    #mob_icon_search{
-        left:0;
-    }
-    #searchbox_mobile{
-        width:80%;
-        margin:auto;
-    }
-    #search_row{
-        margin:auto;
-        width: 80%;
-        display:block;
-    }
-    #search_icon{
-        display:block;
-    }
-    .Show_all{
-        border-top: 5% solid #DCDCDC;
-        border-bottom: 1% solid #DCDCDC;
-    }
-    .last_picture{
-        display: none;
-    }
-    img{
-        width:auto;
-        height: auto;
-    }
-    #images{
-        background-color:#DCDCDC;
-        margin-bottom:10%;
-    }
-    #More_gallery{
+.footer_link{
+    width: 100%;
+}
+table{
+    width:100%;
+}
+tbody{
+    width:100;
+}
+tr{
+    width: 100%;
+}
+.container{
+    width: 100%;
+}
+#mob_icon_search{
+    left:0;
+}
+#searchbox_mobile{
+    width:80%;
+    margin:auto;
+}
+#search_row{
+    margin:auto;
+    width: 80%;
+    display:block;
+}
+#search_icon{
+    display:block;
+}
+.Show_all{
+    border-top: 5% solid #DCDCDC;
+    border-bottom: 1% solid #DCDCDC;
+}
+.last_picture{
+    display: none;
+}
+img{
+    width:auto;
+    height: auto;
+}
+#images{
+    background-color:#DCDCDC;
+    margin-bottom:10%;
+}
+#More_gallery{
 
-        display:none;
-    }
+    display:none;
+}
 
-    #images{
-        width:100%;
-    }
-    #pictures{
+#images{
+    width:100%;
+}
+#pictures{
 
-    }
-    #tabs{
-        display:block;
-    }
-    #tabcontent{
-        display:block;
-        width: 100%;
-    }
-    .form-control input-lg{
-        position:relative;
-        right:0;
-    }
+}
+#tabs{
+    display:block;
+}
+#tabcontent{
+    display:block;
+    width: 100%;
+}
+.form-control input-lg{
+    position:relative;
+    right:0;
+}
 
-    body{
-        width: 100%;
-        background: url(http://solohike.ru/wp-content/uploads/2015/10/o-GRAND-CANYON-RIVER-facebook.jpg);
-        background-size: 100%;
-         background-repeat: no-repeat;
-    }
+body{
+    width: 100%;
+    background: url(http://solohike.ru/wp-content/uploads/2015/10/o-GRAND-CANYON-RIVER-facebook.jpg);
+    background-size: 100%;
+     background-repeat: no-repeat;
+}
 
-    h1{
-        font-size: 3em;
-    }
-    img{
-        max-width:100%;
-    }
-    #glyph_trail{
-        visibility: visible;
-    }
-    #menu_trail{
-        visibility:hidden;
-        align: left;
+h1{
+    font-size: 3em;
+}
+img{
+    max-width:100%;
+}
+#glyph_trail{
+    visibility: visible;
+}
+#menu_trail{
+    visibility:hidden;
+    align: left;
 
-    }
+}
 
-    .form-control input-lg{
-        position: relative;
-        right: 0;
-        align:right;
-    }
-    h12{
-        text-indent: 100%;
-        font-size:0;
-        overflow: hidden;
-    }
-    #glyph_trail{
-        margin-right: 0;
+.form-control input-lg{
+    position: relative;
+    right: 0;
+    align:right;
+}
+h12{
+    text-indent: 100%;
+    font-size:0;
+    overflow: hidden;
+}
+#glyph_trail{
+    margin-right: 0;
 
-    }
-    .menu{
-        width:100%;
-        position: absolute;
-        left:0;
+}
+.menu{
+    width:100%;
+    position: absolute;
+    left:0;
 
-    }
+}
 
-    #join_us_menu{
+#join_us_menu{
 
-        visibility: hidden;
+    visibility: hidden;
 
-    }
-    .title{
-        margin: auto;
-        width: 100%;
-    }
+}
+.title{
+    margin: auto;
+    width: 100%;
+}
 
-    h4{
-        text-align: center;
-        width:100%;
+h4{
+    text-align: center;
+    width:100%;
 
-    }
+}
 
-    .row{
-        display: none;
-        position: static;
-        margin:auto;
-        width: 80%;
-        resize: both;
-        height: auto;
+.row{
+    display: none;
+    position: static;
+    margin:auto;
+    width: 80%;
+    resize: both;
+    height: auto;
 
-    }
-    .search{
-        margin-left: 0;
-        margin-top: 10%;
+}
+.search{
+    margin-left: 0;
+    margin-top: 10%;
 
-    }
+}
 
-    .content{
-        width:100%;
-    }
-    .footer{
-        width: 100%;
-    }
+.content{
+    width:100%;
+}
+.footer{
+ width: 100%;
+}
 
-    .nav-toggle {
-        display: block;
-    }
-    .header {
-        padding: 10px 0;
-    }
-    .footer{
-        display:none;
-        width: 80%;
-    }
-    h1{
-        font-size: 2em;
-        font-weight: 700;
-        text-align:center;
-    }
+.nav-toggle {
+display: block;
+}
+.header {
+padding: 10px 0;
+}
+}
 
+
+@media (max-width: 768px) {
+
+.footer{
+    display:none;
+    width: 80%;
+}
+h1{
+    font-size: 2em;
+    font-weight: 700;
+    text-align:center;
+}
+
+}
+@media (max-width: 972px) {
     table{
         padding-bottom: 5%;
     }
@@ -201,6 +208,13 @@
 
     }
 
+    .tabs_desktop{
+        display:none;
+    }
+
+    #pictures{
+
+    }
     #tab_content{
         display: none;
         position:absolute;
@@ -228,28 +242,18 @@
     #custom-search-input{
     margin: auto;
     width: 100%;
+
     }
+
 }
-
-@media (max-width: 1280px){
-    #glyph_trail{
-        visibility: visible;
-    }
-
-    .search{
-            margin-bottom: 20%;
-        }
+@media (max-width: 1287px){
     .tabs{
         display:none;
         color: #4169E1;
     }
-    .header{
-        height: auto;
-        position: relative;
-    }
     .mobile_tabs{
         width:100%;
-        margin-top: 0%;
+        margin-top: 50%;
         padding-left:5%;
         padding-top:5%;
         display: block;

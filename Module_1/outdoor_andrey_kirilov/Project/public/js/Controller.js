@@ -1,12 +1,16 @@
 var validationApp = angular.module('validationApp', []);
 
-
-validationApp.controller('mainController', ['$scope','$http', '$window', '$location', function($scope, $http, $window, $location) {
+validationApp.controller('mainController', ['$scope','$http', '$window', function($scope, $http, $window) {
+    $scope.button = 'Join us';
     $scope.user = {};
-    $scope.more = 'More';
-    $scope.auth1 = '';
+    $scope.log_users = {};
+    $scope.loguser = {};
+    $scope.link = '#';
 
+
+    $scope.more = 'More';
     $scope.saveData = function() {
+
         $scope.nameRequired = '';
         $scope.emailRequired = '';
         $scope.passwordRequired = '';
@@ -21,43 +25,47 @@ validationApp.controller('mainController', ['$scope','$http', '$window', '$locat
         if (!$scope.user.password) {
                 $scope.passwordRequired = 'Password Required';
         }
-        $http.post('/register', $scope.user).then(function(response, err){
-            if(err) {
-                $("#myModal3").modal("show");
-            }
-            else {
-                $("#myModal_registration").modal("show");
-            }
-        })
-    };
-    $scope.open_log = function(){
-        $("#myModal_reg").modal("hide");
-        $("#myModal").modal("show");
-    }
-    $scope.userlogin = function(){
-        $http({
-            method: "get",
-            url:'/loggedin'
-        }).then(function(response, err){
 
-        }).catch(function(err) {
-            $("#myModal2").modal("show");
+        $http.post('/register', $scope.user).then(function(response){
+            console.log('get data from server');
+            alert('Successful');
+            $window.location.href = '/index.html';
+
+
+    })
+    console.log('Data sended');
+    };
+
+    $scope.loggIn = function () {
+        console.log('started');
+        console.log('I will give this data to server '+$scope.loguser)
+        $http({ url: '/login', method: 'GET', params: {login:$scope.loguser.login, pass:$scope.loguser.pass}
+        }).then(function(result, error, user) {
+
+            $scope.user = result.rows[0];
+            console.log('Password, taken from server '+$scope.user.password);
+             //access returned res here
+            console.log('username, taken from server '+$scope.user.user_account);
+            console.log('Entered username ' + $scope.loguser.login + ' Entered password ' + $scope.loguser.pass)
+//            console.log('1488'+$scope.hash1);
+
+            }, function(error) {
+                console.log('Error in http$get');
+
         });
-        $http({
-            method:"post",
-            url:'/login',
-            data:{username:$scope.username, password:$scope.password},
-        }).then(function(response, err){
-            $scope.userData = response;
-            $("#myModal4").modal("show");
 
-        })
+        if($scope.loguser.login == $scope.user.user_account){
+            alert('Logged in');
+            $window.location.href = '/index.html';
+        }
+        if($scope.loguser.login !== $scope.user.user_account){
+            alert('Incorrect login or password');
+        }
+//        else {
+//            alert('Incorrect login or password')
+//            console.log('failed');
+////            $window.location.href = '/index.html';
+//        }
     };
-    $scope.Login_true = function(){
-        $window.location.href = '/index.html';
-    }
-
-
 }]);
-
 

@@ -4,8 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodejs js/server.js"
+    "start": "node js/server.js"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://jrest@gitlab.com/freshcode-trainee/outdoor_andrey_kirilov.git"
@@ -17,11 +18,16 @@
   },
   "homepage": "https://gitlab.com/freshcode-trainee/outdoor_andrey_kirilov#README",
   "dependencies": {
-    "angular-cookies": "^1.6.3",
-    "angular-ui-router": "^0.4.2",
     "express": "^4.15.2",
     "pg": "^6.1.0",
-    "ui-router-ng2": "^1.0.0-beta.4"
+    "jade": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "passport-facebook": "*",
+    "passport-vkontakte": "*",
+    "nconf": "*",
+    "connect-flash": "*",
+    "connect-memcached": "*"
   },
   "devDependencies": {},
   "description": ""

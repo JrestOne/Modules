@@ -7,24 +7,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.js"></script>
     <script src="js/Controller.js"></script>
     <link rel="stylesheet" href="Styles/style.css">
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
     <link href="Styles/media-queries.css" rel="stylesheet" type="text/css">
 </head>
-<body ng-controller="mainController">
+<body >
 
     <div class="header">
         <div class="title">
             <div class="menu">
-                <a href="#"><button id="menu_trail" class="btn btn-success"><i id="glyph_trail" class="glyphicon glyphicon-plus"></i><h12>CREATE TRAIL</h12></button></a>
-                <a href="#" id="join_us_menu" ng-click="join_us = logout" data-toggle="modal" data-target="#myModal"><h12>Join us</h12> </a>
+                <a href="#"><button id="menu_trail" class="btn btn-success"><i id="glyph_trail"class="glyphicon glyphicon-plus"></i><h12>CREATE TRAIL</h12></button></a>
+                <a href="{{link}}" id="join_us_menu"  data-toggle="modal" data-target="#myModal">
 
+                    <span ng-hide="join_us"><h12>Join us</h12></span>
+                </a>
             </div>
-                    <a href="index.html"><b><h4>OUTDOOR.ROCKS</h4> </b></a>
+                    <a href="#"><b><h4>OUTDOOR.ROCKS</h4> </b></a>
         </div>
 
 
@@ -58,29 +60,29 @@
             <!--</div>-->
         </div>
       </div>
-
+    <div id="content">
                                             <!-------------------------------------------------->
                                                              <!-- TABS -->
-    <div id="content">
+
         <div class="tab">
             <div class="tabs">
                 <input id="tab1" type="radio" name="tabs" checked>
-                <label for="tab1" title="North America">North America</label>
+                <label for="tab1" title="Вкладка 1">North America</label>
 
                 <input id="tab2" type="radio" name="tabs">
-                <label for="tab2" title="South America">South America</label>
+                <label for="tab2" title="Вкладка 2">South America</label>
 
                 <input id="tab3" type="radio" name="tabs">
-                <label for="tab3" title="Africa">Africa</label>
+                <label for="tab3" title="Вкладка 3">Africa</label>
 
                 <input id="tab4" type="radio" name="tabs">
-                <label for="tab4" title="Europe">Europe</label>
+                <label for="tab4" title="Вкладка 4">Europe</label>
 
                 <input id="tab5" type="radio" name="tabs">
-                <label for="tab5" title="Asia">Asia</label>
+                <label for="tab5" title="Вкладка 5">Asia</label>
 
                 <input id="tab6" type="radio" name="tabs">
-                <label for="tab6" title="Oceania">Oceania</label>
+                <label for="tab6" title="Вкладка 6">Oceania</label>
 
                 <section id="content-tab1">
                     <p>
@@ -605,8 +607,8 @@
     </footer>
                                                                <!-- MODAL WINDOW -->
                                                                     <!-- AUTH -->
-    <form name="userForm" ng-submit="submitForm()">
-        <div class="modal fade" id="myModal" >
+    <form name="userForm" ng-controller="mainController" ng-submit="submitForm()">
+        <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
 
                 <div class="modal-content" >
@@ -616,20 +618,16 @@
                     </div>
                     <div class="modal-body">
                             <b>Enter your login:</b><br>
-                            <input type="text" ng-model="username" class="form-control" id="usr" placeholder="Enter your login here"><br>
+                            <input type="text" ng-model="loguser.login" class="form-control" id="usr" placeholder="Enter your login here"><br>
                             <b>Enter your password:</b><br>
-                                <input type="password" ng-model="password" placeholder="Enter your password" class="form-control" id="pwd"><br>
+                                <input type="password" ng-model="loguser.pass" placeholder="Enter your password" class="form-control" id="pwd"><br>
                             <div class="modal_button_login">
-                                <button class="btn btn-success" ng-click="userlogin()"ц>LOG IN</button>
+                                <button class="btn btn-success" ng-click="loggIn()">LOG IN</button>
                                 <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" data-toggle="modal" data-target="#myModal_reg">SIGN IN</button>
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <div id="error_loggin">
-                            <strong>{{text}}</strong>
-                        </div>
-                        <button type="button"  class="btn btn-primary" data-dismiss="modal">Close</button>
-
+                        <button type="button"  class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                 </div>
                 <div class="container">
@@ -638,109 +636,50 @@
         </div>
     </form>
 
-    <form name="userForm" ng-submit="submitForm()" novalidate>
-        <div class="modal fade" id="myModal_reg">
+                                                             <!-- REGISTER -->
+
+   <form name="userForm" ng-controller="mainController" ng-submit="submitForm()" novalidate>
+        <div class="modal fade" id="myModal_reg" role="dialog">
             <div class="modal-dialog">
 
+                <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h8 class="modal-title">Registration</h8>
                     </div>
                     <div class="modal-body">
+                        <!-- NAME -->
+
+                        <!-- USERNAME -->
                         <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
-                            <b>Enter your new login:</b><br>
+                            <label>Username</label>
                             <input type="text" name="username" placeholder="Enter your new login" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8">
                             <p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
                             <p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
                             <span ng-show="nameRequired">{{nameRequired}}</span>
                         </div>
+                        <!-- EMAIL -->
                         <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
-                            <b>Enter your email:</b><br>
+                            <label>Email</label>
                             <input type="email" name="email" placeholder="Enter your email" class="form-control" ng-model="user.email">
                             <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
                             <span ng-show="emailRequired">{{emailRequired}}</span>
                         </div>
-                        <b>Enter your password:</b><br>
+                        <!-- PASSWORD -->
+                        <label>Password</label></br>
                         <input type="password" ng-model="user.password" class="form-control" placeholder="Enter your password">
                         <span ng-show="passwordRequired">{{passwordRequired}}</span><br>
                         <button type="submit" ng-click="saveData()" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+
                     </div>
                 </div>
             </div>
         </div>
 
-    </form>
+   </form>
 
 
-        <div id="myModal2" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h2 class="modal-title">Ошибка</h2>
-                    </div>
-                    <div class="modal-body">
-                        <p>Неверное имя пользователя или пароль</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div id="myModal_registration" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h2 class="modal-title">Поздравляем!</h2>
-                    </div>
-                    <div class="modal-body">
-                        <p>Вы успеешно зарегистрировались!</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" ng-click="open_log()" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    <div id="myModal3" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h2 class="modal-title">Ошибка</h2>
-                </div>
-                <div class="modal-body">
-                    <p><h2>Ошибка при регистрации! Проверье правильность введённых данных</h2></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="myModal4" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h2 class="modal-title">Поздравляем!</h2>
-                </div>
-                <div class="modal-body">
-                    <p>Вы успешно авторизовались!</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" ng-click="Login_true()" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="validationApp">
+<head>
+    <meta charset="utf-8">
+    <title>OUTDOOR.ROCKS!</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="js/Controller.js"></script>
+    <link rel="stylesheet" href="Styles/style.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+    <!--<link href="Styles/media-queries.css" rel="stylesheet" type="text/css">-->
+</head>
+<body ng-controller="mainController">
+    <div class="header_admin">
+        <div class="title">
+            <div class="menu">
+
+                </a>
+            </div>
+            <a href="index.html"><b><h4>OUTDOOR.ROCKS</h4> </b></a>
+        </div>
+    </div>
+
+
+    <div class="admin_panel_block" ng-repeat="user in users">
+        <h3>USERS</h3>
+        <div id="content">
+            <p>User ID: {{user.id}}</p>
+            <p>Username: {{user.username}}</p>
+            <p>Email: {{user.email}}</p>
+            <p>Role: {{user.roles}}</p>
+        </div>
+        <div id="content_buttons">
+            <button type="button"  class="btn btn-danger"  id="buttod_admin2">Edit</button>
+            <button type="button"  ng-click="delUser(user.id)" class="btn btn-danger"  id="buttod_admin" data-toggle="modal" data-target="#Modal_del"><i id="glyph_trail"class="glyphicon glyphicon-remove"></i></button>
+        </div>
+    </div>
+
+
+
+    <form name="userForm" ng-controller="mainController">
+        <div class="modal fade" id="Modal_del" role="dialog">
+            <div class="modal-dialog">
+
+                <div class="modal-content" >
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h8 class="modal-title">Auth</h8>
+                    </div>
+                    <div id="modal_content">
+                        <label><h3>Delete User?</h3></label><br>
+                        <button class="btn btn-success btn-lg" ng-click="deleteUser()">Delete</button>
+                        <button href="admin.html" class="btn btn-secondary" data-dismiss="modal">Cansel</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

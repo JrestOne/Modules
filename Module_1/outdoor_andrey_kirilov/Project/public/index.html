@@ -1,0 +1,750 @@
+<!DOCTYPE HTML>
+<html ng-app="validationApp">
+<head>
+    <meta charset="utf-8">
+    <title>OUTDOOR.ROCKS!</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
+    <script src="js/Controller.js"></script>
+    <link rel="stylesheet" href="Styles/style.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+    <link href="Styles/media-queries.css" rel="stylesheet" type="text/css">
+</head>
+<body ng-controller="mainController">
+
+    <div class="header">
+        <div class="title">
+            <div class="menu">
+                <a href="#"><button id="menu_trail" class="btn btn-success"><i id="glyph_trail" class="glyphicon glyphicon-plus"></i><h12>CREATE TRAIL</h12></button></a>
+                <a href="#" id="join_us_menu" ng-click="join_us = logout" data-toggle="modal" data-target="#myModal"><h12>Join us</h12> </a>
+
+            </div>
+                    <a href="index.html"><b><h4>OUTDOOR.ROCKS</h4> </b></a>
+        </div>
+
+
+        <div class="search">
+            <h1>Find your route</h1>
+            <div class="row">
+                <div id="searchbox_comp"class="col-md-6">
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="form-control input-lg" placeholder="Enter location" />
+                            <span class="input-group-btn">
+                            <button class="btn btn-info btn-lg" type="reset">
+                                <a href="#"><i class="glyphicon glyphicon-search"></i></a>
+                            </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="search_row">
+                <div class="right-inner-addon ">
+                    <i class="icon-search"></i>
+                    <input type="search"
+                           class="form-control"
+                           placeholder="Search" />
+                </div>
+            </div>
+            <!--<div id="search_row">-->
+                <!--<i id="mob_icon_search" class="glyphicon glyphicon-search"></i>-->
+                <!--<input type="text" id="searchbox_mobile" class="form-control">-->
+            <!--</div>-->
+        </div>
+      </div>
+
+                                            <!-------------------------------------------------->
+                                                             <!-- TABS -->
+    <div id="content">
+        <div class="tab">
+            <div class="tabs">
+                <input id="tab1" type="radio" name="tabs" checked>
+                <label for="tab1" title="North America">North America</label>
+
+                <input id="tab2" type="radio" name="tabs">
+                <label for="tab2" title="South America">South America</label>
+
+                <input id="tab3" type="radio" name="tabs">
+                <label for="tab3" title="Africa">Africa</label>
+
+                <input id="tab4" type="radio" name="tabs">
+                <label for="tab4" title="Europe">Europe</label>
+
+                <input id="tab5" type="radio" name="tabs">
+                <label for="tab5" title="Asia">Asia</label>
+
+                <input id="tab6" type="radio" name="tabs">
+                <label for="tab6" title="Oceania">Oceania</label>
+
+                <section id="content-tab1">
+                    <p>
+                        <h2>United States</h2>
+                        <table>
+                        <tr >
+                        <td>Alabama</td>
+                        <td>Idaho</td>
+                        <td>Minnesota</td>
+                        <td>North Dakota</td>
+                        <td>Vermont</td>
+                        </tr>
+                        <tr >
+                        <td>Alaska</td>
+                        <td>Illinois</td>
+                        <td>Mississippi</td>
+                        <td>Ohio</td>
+                        <td>Virginia</td>
+                        </tr>
+                        <tr >
+                        <td>Arizona</td>
+                        <td>Indiana</td>
+                        <td>Missouri</td>
+                        <td>Oklahoma</td>
+                        <td>Washington</td>
+                        </tr>
+                        <tr >
+                        <td>Arkansas</td>
+                        <td>Iowa</td>
+                        <td>Montana</td>
+                        <td>Oregon</td>
+                        <td>Washington DC</td>
+                        </tr>
+                        <tr >
+                        <td>California</td>
+                        <td>Kansas</td>
+                        <td>Nebraska</td>
+                        <td>Pennsylvania</td>
+                        <td>West Virginia</td>
+                        </tr>
+                        <tr >
+                        <td>Colorado</td>
+                        <td>Kentucky</td>
+                        <td>Nevada</td>
+                        <td>Rhode Island</td>
+                        <td>Wisconsin</td>
+                        </tr>
+                        <tr >
+                        <td>Connecticut</td>
+                        <td>Louisiana</td>
+                        <td>New Hampshire</td>
+                        <td>South Carolina</td>
+                        <td>Wyoming</td>
+                        </tr>
+                        <tr >
+                        <td>Delaware</td>
+                        <td>Maine</td>
+                        <td>New Jersy</td>
+                        <td>South Dakota</td>
+                        </tr>
+                        <tr >
+                        <td>Florida</td>
+                        <td>Maryland</td>
+                        <td>New Mexico</td>
+                        <td>Tennessee</td>
+                        </tr>
+                        <tr >
+                        <td>Georgia</td>
+                        <td>Massachusetts</td>
+                        <td>New York</td>
+                        <td>Texas</td>
+                        </tr>
+                        <tr >
+                        <td>Hawaii</td>
+                        <td>Michigan</td>
+                        <td>North Carolina</td>
+                        <td>Utah</td>
+                        </tr>
+                        </table>
+
+                        <h2>Canada</h2>
+                        <table>
+                        <tr >
+                        <td>Alberta</td>
+                        <td>New brunswick</td>
+                        <td>Nunavut</td>
+                        <td>Quebec</td>
+                        </tr>
+                        <tr >
+                        <td>British Columbia</td>
+                        <td>Northwest Territories</td>
+                        <td>Ontario</td>
+                        </tr>
+                        <tr >
+                        <td>Manitoba</td>
+                        <td>Nova Scotia</td>
+                        <td>Prince Edward Island</td>
+                        </tr>
+                        </table>
+                    </p>
+                </section>
+                <section id="content-tab2">
+                    <p>
+                        <table >
+                        <tr>
+                        <td>Argentina</td>
+                        <td>Bolivia</td>
+                        <td>Brazil</td>
+                        <td>Chile</td>
+                        <td>Colombia</td>
+                        </tr>
+                        <tr>
+                        <td>Ecuador</td>
+                        <td>Guyana</td>
+                        <td>Paraguay</td>
+                        <td>Peru</td>
+                        <td>Suriname</td>
+                        </tr>
+                        <tr>
+                        <td>Uruguay</td>
+                        <td>Venezuela</td>
+                        </tr>
+                        </table>
+                    </p>
+                </section>
+                <section id="content-tab3">
+                    <p>
+                        <table>
+                            <tr>
+                            <td>Algeria</td>
+                            <td>Angola</td>
+                            <td>Benin</td>
+                            <td>Botswana</td>
+                            <td>Burkina Faso</td>
+                            </tr>
+                            <tr>
+                            <td>Burundi</td>
+                            <td>Cabo Verde</td>
+                            <td>Cameroon</td>
+                            <td>Central African Republic</td>
+                            <td>Chad</td>
+                            </tr>
+                            <tr>
+                            <td>Comoros</td>
+                            <td>Democratic Republic of the Congo</td>
+                            <td>Republic of the Congo Cote d`lvoire</td>
+                            <td>Djiboui</td>
+                            <td>Egypt</td>
+                            </tr>
+                            <tr>
+                            <td>Equatorial Guinea</td>
+                            <td>Eritrea</td>
+                            <td>Ethiopia</td>
+                            <td>Gabon</td>
+                            <td>Gambia</td>
+                            </tr>
+                            <tr>
+                            <td>Ghana</td>
+                            <td>Guinea</td>
+                            <td>Guinea-Bissau</td>
+                            <td>Kenya</td>
+                            <td>Lesotho</td>
+                            </tr>
+                            <tr>
+                            <td>Liberia</td>
+                            <td>Libya</td>
+                            <td>Madagascar</td>
+                            <td>Malawi</td>
+                            <td>Mali</td>
+                            </tr>
+                            <tr>
+                            <td>Mauritania</td>
+                            <td>Mauritius</td>
+                            <td>Morocco</td>
+                            <td>Mozambique</td>
+                            <td>Namibia</td>
+                            </tr>
+                            <tr>
+                            <td>Niger</td>
+                            <td>Nigeria</td>
+                            <td>Rwanda</td>
+                            <td>Sao Tome and Principe</td>
+                            <td>Senegal</td>
+                            </tr>
+                            <tr>
+                            <td>Seychelles</td>
+                            <td>Sierra Leone</td>
+                            <td>Somalia</td>
+                            <td>South Africa</td>
+                            <td>South Sudan</td>
+                            </tr>
+                            <tr>
+                            <td>Sudan</td>
+                            <td>Swaziland</td>
+                            <td>Tanzania</td>
+                            <td>Togo</td>
+                            <td>Tunisia</td>
+                            </tr>
+                            <tr>
+                            <td>Uganda</td>
+                            <td>Zambia</td>
+                            <td>Zimbabwe</td>
+                            </tr>
+                        </table>
+                    </p>
+                </section>
+                <section id="content-tab4">
+                    <p>
+                        <table>
+                            <tr>
+                            <td>Albania</td>
+                            <td>Andorra</td>
+                            <td>Armenia</td>
+                            <td>Australia</td>
+                            <td>Azerbaijan</td>
+                            </tr>
+                            <tr>
+                            <td>Belarus</td>
+                            <td>Belgium</td>
+                            <td>Bosnia and Herzegovina</td>
+                            <td>Bulgaria</td>
+                            <td>Croatia</td>
+                            </tr>
+                            <tr>
+                            <td>Cyprus</td>
+                            <td>Czech Republic</td>
+                            <td>Denmark</td>
+                            <td>Estonia</td>
+                            <td>Finland</td>
+                            </tr>
+                            <tr>
+                            <td>France</td>
+                            <td>Georgia</td>
+                            <td>Germany</td>
+                            <td>Greece</td>
+                            <td>Hungary</td>
+                            </tr>
+                            <tr>
+                            <td>Iceland</td>
+                            <td>Ireland</td>
+                            <td>Italy</td>
+                            <td>Kazakhstan</td>
+                            <td>Kosovo</td>
+                            </tr>
+                            <tr>
+                            <td>Latvia</td>
+                            <td>Liechtenstein</td>
+                            <td>Lithuania</td>
+                            <td>Luxembourg</td>
+                            <td>Macedonia</td>
+                            </tr>
+                            <tr>
+                            <td>Malta</td>
+                            <td>Moldova</td>
+                            <td>Monaco</td>
+                            <td>Montenegro</td>
+                            <td>Netherlands</td>
+                            </tr>
+                            <tr>
+                            <td>Norway</td>
+                            <td>Poland</td>
+                            <td>Portugal</td>
+                            <td>Romania</td>
+                            <td>Russia</td>
+                            </tr>
+                            <tr>
+                            <td>San Marino</td>
+                            <td>Serbia</td>
+                            <td>Slovakia</td>
+                            <td>Slovenia</td>
+                            <td>Spain</td>
+                            </tr>
+                            <tr>
+                            <td>Sweden</td>
+                            <td>Switzerland</td>
+                            <td>Turkey</td>
+                            <td><a href="images.jpeg" id="paschal">Ukraine</a></td>
+                            <td>United Kingdom</td>
+                            </tr>
+                            <tr>
+                            <td>Vatican City</td>
+                            </tr>
+                        </table>
+                    </p>
+                </section>
+                <section id="content-tab5">
+                    <p>
+                        <h2>Asia</h2>
+                        <table>
+                        <tr>
+                        <td>Afghanistan</td>
+                        <td>Armenia</td>
+                        <td>Azerbaijan</td>
+                        <td>Bahrain</td>
+                        <td>Bangladesh</td>
+                        </tr>
+                        <tr>
+                        <td>Bhutan</td>
+                        <td>Brunei</td>
+                        <td>Cambodia</td>
+                        <td>China</td>
+                        <td>Cyprus</td>
+                        </tr>
+                        <tr>
+                        <td>Georgia</td>
+                        <td>India</td>
+                        <td>Indonesia</td>
+                        <td>Iran</td>
+                        <td>Iraq</td>
+                        </tr>
+                        <tr>
+                        <td>Israel</td>
+                        <td>Japan</td>
+                        <td>Jordan</td>
+                        <td>Kazakhstan</td>
+                        <td>Kuwait</td>
+                        </tr>
+                        <tr>
+                        <td>Kyrgyzstan</td>
+                        <td>Laos</td>
+                        <td>Lebanon</td>
+                        <td>Malaysia</td>
+                        <td>Maldives</td>
+                        </tr>
+                        <tr>
+                        <td>Mongolia</td>
+                        <td>Myanmar</td>
+                        <td>Nepal</td>
+                        <td>North Korea</td>
+                        <td>Oman</td>
+                        </tr>
+                        <tr>
+                        <td>Pakistan</td>
+                        <td>Palestine</td>
+                        <td>Philippines</td>
+                        <td>Qatar</td>
+                        <td>Russia</td>
+                        </tr>
+                        <tr>
+                        <td>Saudi Arabia</td>
+                        <td>Singapore</td>
+                        <td>South Korea</td>
+                        <td>Sri Lanka</td>
+                        <td>Syria</td>
+                        </tr>
+                        <tr>
+                        <td>Taiwan</td>
+                        <td>Tajikistan</td>
+                        <td>Thailand</td>
+                        <td>Timor-Leste</td>
+                        <td>Turkey</td>
+                        </tr>
+                        <tr>
+                        <td>Turkmenistan</td>
+                        <td>United Arab Emirates</td>
+                        <td>Uzbekistan</td>
+                        <td>Vietnam</td>
+                        <td>Yemen</td>
+                        </tr>
+                        </table>
+                    </p>
+                </section>
+                <section id="content-tab6">
+                    <p>
+                        <table>
+                        <tr>
+                        <td>Australia</td>
+                        <td>Jiji</td>
+                        <td>Kiribati</td>
+                        <td>Marshall Island</td>
+                        <td>Micronesia</td>
+                        </tr>
+                        <tr>
+                        <td>Nauru</td>
+                        <td>New Zealand</td>
+                        <td>Palau</td>
+                        <td>Papua New Guinea</td>
+                        <td>Samoa</td>
+                        </tr>
+                        <tr>
+                        <td>Solomon Islands</td>
+                        <td>Tonga</td>
+                        <td>Tuvalu</td>
+                        <td>Vanuatu</td>
+                        </tr>
+                        </table>
+                    </p>
+                </section>
+            </div>
+
+
+            <div class="mobile_tabs">
+                <div id="North_America2" >
+                    <h2>North America</h2>
+                    <h6>United States</h6>
+                    <h6>Canada</h6>
+
+                </div>
+                <div id="Europe2" >
+                    <h2>Europe</h2>
+                    <table>
+                        <tr>
+                            <th>Ukraine</th><th>Spain</th>
+                        </tr>
+                        <tr>
+                            <th>Russia</th><th>United Kingdom</th>
+                        </tr>
+                        <tr>
+                            <th>Poland</th><th>Norway</th>
+                        </tr>
+                        </td>
+                    </table>
+                </div>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-block">
+                        <div id="Asia2" >
+                            <h2>Asia</h2>
+                            <table>
+                                <tr>
+                                    <th>Russia</th>
+                                </tr>
+                                <tr>
+                                    <th>Afghanistan</th>
+                                </tr>
+                                <tr>
+                                    <th>Armenia</th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="Africa2" >
+                            <h2>Africa</h2>
+                            <table>
+                                <tr>
+                                    <th>Algeria</th><th>Comoros</th>
+                                </tr>
+                                <tr>
+                                    <th>Egypt</th><th>Uganda</th>
+                                </tr>
+                                <tr>
+                                    <th>Liberia</th><th>Zimbabwe</th>
+                                </tr>
+                                <tr>
+                                    <th>Ghana</th><th>Tunisia</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    <a data-toggle="collapse" id="Show_all" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <h4>Show all</h4>
+                    </a>
+                </p>
+            </div>
+        </div>
+
+
+
+                  <!-------------------------------------------------->
+                                                        <!-- GALLERY -->
+        <div id="images">
+        <div id="title_gallery">
+            <h11>Featured trails</h11>
+        </div>
+        <div id="pictures">
+            <p>
+
+                <a href="#"><img src="images/gallery.png"></a>
+                <a href="#"><img src="images/gallery.png"></a>
+                <a href="#" class="last_picture"><img src="images/gallery.png"></a>
+            </p>
+            <p>
+                <a href="#"><img src="images/gallery.png"></a>
+                <a href="#"><img src="images/gallery.png"></a>
+                <a href="#" class="last_picture"><img src="images/gallery.png"></a>
+            </p>
+            <div class="collapse" id="hidden_pictures">
+                <div class="card card-block" >
+                    <p>
+                        <a href="#"><img src="images/gallery.png"></a>
+                        <a href="#"><img src="images/gallery.png"></a>
+                        <a href="#" class="last_picture"><img src="images/gallery.png"></a>
+                    </p>
+                    <p>
+                        <a href="#"><img src="images/gallery.png"></a>
+                        <a href="#"><img src="images/gallery.png"></a>
+                        <a href="#" class="last_picture"><img src="images/gallery.png"></a>
+                    </p>
+                    <p>
+                        <a href="#"><img src="images/gallery.png"></a>
+                        <a href="#"><img src="images/gallery.png"></a>
+                        <a href="#" class="last_picture"><img src="images/gallery.png"></a>
+                    </p>
+                </div>
+            </div>
+
+            <a data-toggle="collapse" ng-click="toggle = !toggle" href="#hidden_pictures" id="More_gallery" aria-expanded="false" aria-controls="hidden_pictures" class="btn btn-default btn-lg btn-block">
+                <span ng-show="toggle"><h12>Less</h12></span>
+                <span ng-hide="toggle"><h12>More</h12></span>
+            </h12></a>
+        </div>
+
+    </div>
+    </div>
+
+                                    <!--FOOTER -->
+
+    <footer class="footer">
+        <div class="container">
+            <p class="footer_link">
+                <table>
+                    <tr>
+                        <td><a href="">Home</a></td>
+                        <td><a href="">About</a></td>
+                        <td><a href="">Partners</a></td>
+                        <td><a href="">Blog</a></td>
+                        <td><a href="">FeedBack</a></td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+    </footer>
+                                                               <!-- MODAL WINDOW -->
+                                                                    <!-- AUTH -->
+    <form name="userForm" ng-submit="submitForm()">
+        <div class="modal fade" id="myModal" >
+            <div class="modal-dialog">
+
+                <div class="modal-content" >
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h8 class="modal-title">Auth</h8>
+                    </div>
+                    <div class="modal-body">
+                            <b>Enter your login:</b><br>
+                            <input type="text" ng-model="username" class="form-control" id="usr" placeholder="Enter your login here"><br>
+                            <b>Enter your password:</b><br>
+                                <input type="password" ng-model="password" placeholder="Enter your password" class="form-control" id="pwd"><br>
+                            <div class="modal_button_login">
+                                <button class="btn btn-success" ng-click="userlogin()"ц>LOG IN</button>
+                                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" data-toggle="modal" data-target="#myModal_reg">SIGN IN</button>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div id="error_loggin">
+                            <strong>{{text}}</strong>
+                        </div>
+                        <button type="button"  class="btn btn-primary" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+                <div class="container">
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form name="userForm" ng-submit="submitForm()" novalidate>
+        <div class="modal fade" id="myModal_reg">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h8 class="modal-title">Registration</h8>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+                            <b>Enter your new login:</b><br>
+                            <input type="text" name="username" placeholder="Enter your new login" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8">
+                            <p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
+                            <p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+                            <span ng-show="nameRequired">{{nameRequired}}</span>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                            <b>Enter your email:</b><br>
+                            <input type="email" name="email" placeholder="Enter your email" class="form-control" ng-model="user.email">
+                            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                            <span ng-show="emailRequired">{{emailRequired}}</span>
+                        </div>
+                        <b>Enter your password:</b><br>
+                        <input type="password" ng-model="user.password" class="form-control" placeholder="Enter your password">
+                        <span ng-show="passwordRequired">{{passwordRequired}}</span><br>
+                        <button type="submit" ng-click="saveData()" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+        <div id="myModal2" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h2 class="modal-title">Ошибка</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>Неверное имя пользователя или пароль</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="myModal_registration" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h2 class="modal-title">Поздравляем!</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>Вы успеешно зарегистрировались!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" ng-click="open_log()" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div id="myModal3" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title">Ошибка</h2>
+                </div>
+                <div class="modal-body">
+                    <p><h2>Ошибка при регистрации! Проверье правильность введённых данных</h2></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myModal4" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title">Поздравляем!</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Вы успешно авторизовались!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="Login_true()" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>
